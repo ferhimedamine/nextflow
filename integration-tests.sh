@@ -13,12 +13,6 @@ if [[ $X_BRANCH != master && $X_BRANCH != testing ]] && [ ${X_JDK:=8} -gt 8 ]; t
   exit 0
 fi
 
-if [ ${X_JDK} -gt 8 ]; then
-    set -x
-    export JAVA_HOME=$HOME/openjdk$X_JDK
-    $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk$X_JDK --target $JAVA_HOME
-fi
-
 export WITH_DOCKER='-with-docker'
 export NXF_ANSI_LOG=false
 export NXF_CMD=$PWD/nextflow;
