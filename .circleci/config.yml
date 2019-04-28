@@ -28,9 +28,7 @@ jobs:
       - run: make assemble
       - run: make test
       - run: make install
-      - run: |
-          ./install-java-ci.sh;
-          ./integration-tests.sh
+      - run: ./integration-tests.sh
 #     - run: bash pub-tests.sh circle
 
 workflows:

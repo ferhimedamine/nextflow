@@ -28,7 +28,6 @@ script:
   - |
     (set -e;
     make test install;
-    ./install-java-ci.sh;
     ./integration-tests.sh)
     test_status=$?
     if [[ "$test_status" != 0 && "$TRAVIS_PULL_REQUEST" == false ]]; then bash pub-tests.sh travis; fi
