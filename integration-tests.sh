@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 X_JDK=${TEST_JDK:=8}
 X_BRANCH=${TRAVIS_BRANCH:-${CIRCLE_BRANCH:-'master'}}
 X_PULL_REQUEST=${TRAVIS_PULL_REQUEST:-false}
@@ -14,7 +15,6 @@ if [[ $X_BRANCH != master && $X_BRANCH != testing ]] && [ ${X_JDK:=8} -gt 8 ]; t
 fi
 
 if [ ${X_JDK} -gt 8 ]; then
-    set +x 
     curl -o install-jdk.sh https://raw.githubusercontent.com/sormuras/bach/master/install-jdk.sh
     chmod +x install-jdk.sh
     source ./install-jdk.sh --cacerts --feature $X_JDK
