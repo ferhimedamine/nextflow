@@ -26,9 +26,7 @@ before_script:
   - make assemble
 script:
   - |
-    (set -e;
-    make test install;
-    ./integration-tests.sh)
+    (set -e; make test install; ./integration-tests.sh)
     test_status=$?
     if [[ "$test_status" != 0 && "$TRAVIS_PULL_REQUEST" == false ]]; then bash pub-tests.sh travis; fi
     exit $test_status
