@@ -15,8 +15,6 @@ if [[ $X_BRANCH != master && $X_BRANCH != testing ]] && [ ${X_JDK:=8} -gt 8 ]; t
 fi
 
 if [ ${X_JDK} -gt 8 ]; then
-    curl -o install-jdk.sh https://raw.githubusercontent.com/sormuras/bach/master/install-jdk.sh
-    chmod +x install-jdk.sh
     source ./install-jdk.sh --cacerts --feature $X_JDK
 fi
 
