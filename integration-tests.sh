@@ -14,7 +14,7 @@ if [[ $X_BRANCH != master && $X_BRANCH != testing ]] && [ ${X_JDK:=8} -gt 8 ]; t
 fi
 
 # install custom Java version
-if [[ $TEST_JDK ]]; then
+if [ ${X_JDK} -gt 8 ]; then
   wget -q https://raw.githubusercontent.com/sormuras/bach/master/install-jdk.sh
   # temporary path -- see https://github.com/sormuras/bach/issues/51#issuecomment-487380743
   sed -i 's@https://download.java.net/java@https://download.oracle.com/java@g' install-jdk.sh
